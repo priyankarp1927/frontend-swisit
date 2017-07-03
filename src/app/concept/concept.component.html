@@ -1,0 +1,44 @@
+<!-- <div class='row'>
+<div class="col-lg-3">
+    <div class="input-group">
+    <b> <label> DOMAIN : 
+      <input type="text" class="form-control" placeholder="Concepts..." >
+     </label></b><br><br><br>
+    <b> <label> CONCEPT : 
+      <input type="text" class="form-control" placeholder="Concepts..." >
+            </label></b><br><br><br>
+     <b> <label> TERMS :
+       <input type="text" class="form-control" placeholder="Terms...">
+       
+       </label></b>
+     
+    </div>  /input-group 
+  </div>  /.col-lg-6 
+</div>
+
+ -->
+
+ <md-input-container>
+  <input mdInput [mdAutocomplete]="auto" [formControl]="conceptCtrl"  placeholder=" Concept " >
+</md-input-container>
+
+ <md-autocomplete #auto="mdAutocomplete">
+  <md-option *ngFor="let concept of filteredConcept  | async" [value]="concept">
+    {{ concept }}
+  </md-option>
+</md-autocomplete>
+
+<md-input-container class="example-full-width">
+   <input mdInput #description placeholder="enter your description" value="nice">
+ </md-input-container>
+  <router-outlet></router-outlet>
+  <!-- <md-input-container>
+<input mdInput placeholder="TERMS" [mdAutocomplete]="uniqueterms" [formControl]="termsCtrl">
+</md-input-container>
+
+<md-autocomplete #uniqueterms ="mdAutocomplete">
+ <md-option *ngFor="let terms of filteredTerms | async" [value]="terms">
+    {{ terms }}
+  </md-option>
+</md-autocomplete> -->
+ 
